@@ -100,6 +100,7 @@ func printUsage(w io.Writer) {
 	fmt.Fprintf(w, usageString)
 }
 
+// build with: go build -o application
 func main() {
 	c, err := parseArgs(os.Args[1:])
 	if err != nil {
@@ -107,6 +108,8 @@ func main() {
 		printUsage(os.Stdout)
 		os.Exit(1)
 	}
+
+	// Has a bug when using -h or --help, Still prints an error message!
 	err = validateArgs(c)
 	if err != nil {
 		fmt.Fprintln(os.Stdout, err)
