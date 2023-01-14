@@ -61,7 +61,7 @@ func parseArgs(args []string) (config, error) {
 }
 
 func validateArgs(c config) error {
-	if !(c.numTimes > 0) {
+	if !(c.numTimes > 0) && !(c.printUsage) {
 		return errors.New("Must specify a number greater than 0")
 	}
 
