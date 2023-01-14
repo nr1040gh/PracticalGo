@@ -109,7 +109,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Has a bug when using -h or --help, Still prints an error message!
 	err = validateArgs(c)
 	if err != nil {
 		fmt.Fprintln(os.Stdout, err)
