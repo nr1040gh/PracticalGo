@@ -10,11 +10,11 @@ func TestValidateArgs(t *testing.T) {
 	tests := []testConfig{
 		{
 			c:   config{}, // composite literals require , at the end?
-			err: errors.New("Must specify a number greater than 0"),
+			err: errors.New("must specify a number greater than 0"),
 		},
 		{
 			c:   config{numTimes: -1},
-			err: errors.New("Must specify a number greater than 0"),
+			err: errors.New("must specify a number greater than 0"),
 		},
 		{
 			c:   config{numTimes: 10},

@@ -23,7 +23,7 @@ func TestRunCmd(t *testing.T) {
 			input: "",
 			// check documentation for strings.Repeat
 			output: strings.Repeat("Your name please? Press the Enter key when done.\n", 1),
-			err:    errors.New("You didn't enter your name"),
+			err:    errors.New("you didn't enter your name"),
 		},
 		{
 			c:      config{numTimes: 5},

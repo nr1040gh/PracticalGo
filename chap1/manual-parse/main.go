@@ -14,6 +14,9 @@ func getName(r io.Reader, w io.Writer) (string, error) {
 	msg := "Your name please? Press the Enter key when done.\n"
 
 	// look up what's special about Fprintf
+	// Fprintf writes formatted message to writer
+	// Sprintf returns a string in the given format
+	// Printf writes to standard output and returns number of bytes and error
 	fmt.Fprintf(w, msg)
 
 	// look up documentation for NewScanner and Scan
@@ -24,7 +27,7 @@ func getName(r io.Reader, w io.Writer) (string, error) {
 	}
 	name := scanner.Text() // Text() returns the read data as a string
 	if len(name) == 0 {
-		return "", errors.New("You didn't enter your name")
+		return "", errors.New("you didn't enter your name")
 	}
 
 	return name, nil
@@ -41,7 +44,8 @@ func parseArgs(args []string) (config, error) {
 	var err error
 	c := config{}
 	if len(args) != 1 {
-		return c, errors.New("Invalid number of arguments")
+		// error strings should not be capitalized
+		return c, errors.New("invalid number of arguments")
 	}
 
 	// default value for bool is false?
@@ -62,7 +66,7 @@ func parseArgs(args []string) (config, error) {
 
 func validateArgs(c config) error {
 	if !(c.numTimes > 0) && !(c.printUsage) {
-		return errors.New("Must specify a number greater than 0")
+		return errors.New("must specify a number greater than 0")
 	}
 
 	return nil
